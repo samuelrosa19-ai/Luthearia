@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luthearia | Violinos, Arcos e Serviços de Luthier</title>
+
+<style>
+:root{
+  --bege:#f5deb3;
+  --laranja:#cd6921;
+  --preto:#000000;
+  --branco:#ffffff;
+  --cinza:#f5f5f5;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--bege);
+  color:var(--preto);
+  line-height:1.6;
+}
+
+header{
+  background:#000;
+  color:#fff;
+  padding:18px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:bold;
+  color:var(--bege);
+}
+
+nav{
+  display:flex;
+  gap:22px;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+nav a:hover{
+  color:var(--laranja);
+}
+
+.hero{
+  min-height:85vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:60px 20px;
+  background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+    var(--laranja);
+  color:#fff;
+}
+
+.hero-content{
+  max-width:850px;
+}
+
+.hero h1{
+  font-size:clamp(42px,8vw,76px);
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:20px;
+  margin-bottom:30px;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 25px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  margin:5px;
+  transition:.3s;
+}
+
+.btn-orange{
+  background:var(--laranja);
+  color:#fff;
+}
+
+.btn-beige{
+  background:var(--bege);
+  color:#000;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  opacity:.9;
+}
+
+section{
+  padding:75px 7%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.section-title h2{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.section-title p{
+  max-width:700px;
+  margin:auto;
+}
+
+.about{
+  background:#fff;
+}
+
+.about-content{
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+  font-size:18px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:#fff;
+  padding:30px 22px;
+  border-radius:15px;
+  box-shadow:0 5px 20px rgba(0,0,0,.12);
+  text-align:center;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+}
+
+.card .icon{
+  font-size:45px;
+  margin-bottom:15px;
+}
+
+.card h3{
+  margin-bottom:10px;
+}
+
+.products{
+  background:#000;
+  color:#fff;
+}
+
+.product-card{
+  background:#171717;
+  border:1px solid #333;
+  border-radius:15px;
+  overflow:hidden;
+  transition:.3s;
+}
+
+.product-card:hover{
+  transform:translateY(-5px);
+}
+
+.product-image{
+  height:210px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--bege);
+  color:#000;
+  font-size:65px;
+}
+
+.product-info{
+  padding:22px;
+}
+
+.product-info h3{
+  color:var(--bege);
+  margin-bottom:8px;
+}
+
+.product-info p{
+  margin-bottom:15px;
+}
+
+.highlight{
+  background:var(--laranja);
+  color:#fff;
+  border-radius:20px;
+  padding:50px 30px;
+  text-align:center;
+  margin-top:40px;
+}
+
+.highlight h2{
+  font-size:35px;
+  margin-bottom:15px;
+}
+
+.gallery{
+  background:#fff;
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.gallery-item{
+  height:220px;
+  border-radius:15px;
+  background:var(--bege);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:60px;
+}
+
+.testimonials{
+  background:var(--bege);
+}
+
+.testimonial{
+  background:#fff;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 4px 15px rgba(0,0,0,.1);
+}
+
+.testimonial p{
+  font-style:italic;
+  margin-bottom:12px;
+}
+
+.contact{
+  background:#000;
+  color:#fff;
+  text-align:center;
+}
+
+.contact-box{
+  max-width:800px;
+  margin:auto;
+}
+
+.socials{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:25px;
+}
+
+.socials a{
+  color:#fff;
+  text-decoration:none;
+  background:#222;
+  padding:12px 18px;
+  border-radius:25px;
+}
+
+.socials a:hover{
+  background:var(--laranja);
+}
+
+footer{
+  background:#000;
+  color:#aaa;
+  text-align:center;
+  padding:25px;
+  border-top:1px solid #333;
+}
+
+.whatsapp-float{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:#25D366;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  text-decoration:none;
+  box-shadow:0 4px 15px rgba(0,0,0,.3);
+  z-index:999;
+}
+
+@media(max-width:700px){
+  header{
+    flex-direction:column;
+    gap:12px;
+  }
+
+  nav{
+    gap:12px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  nav a{
+    font-size:13px;
+  }
+
+  section{
+    padding:55px 5%;
+  }
+
+  .hero{
+    min-height:75vh;
+  }
+
+  .hero h1{
+    font-size:45px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🎻 LUTHEARIA</div>
+
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <h1>Luthearia</h1>
+
+    <p>
+      Arte, precisão e tradição para músicos que valorizam
+      instrumentos de qualidade.
+    </p>
+
+    <a class="btn btn-orange"
+       href="https://wa.me/5518981170978?text=Olá!%20Gostaria%20de%20conhecer%20os%20produtos%20e%20serviços%20da%20Luthearia."
+       target="_blank">
+       Falar pelo WhatsApp
+    </a>
+
+    <a class="btn btn-beige" href="#produtos">
+      Conhecer produtos
+    </a>
+  </div>
+</section>
+
+<section class="about" id="sobre">
+  <div class="section-title">
+    <h2>Sobre a Luthearia</h2>
+    <p>Paixão pela música em cada detalhe.</p>
+  </div>
+
+  <div class="about-content">
+    <p>
+      A Luthearia trabalha com instrumentos de cordas e serviços
+      especializados de luthieria, unindo conhecimento, cuidado e
+      atenção aos detalhes para entregar qualidade aos músicos.
+    </p>
+
+    <br>
+
+    <p>
+      Trabalhamos com <strong>violinos, arcos para violino de alta
+      qualidade</strong> e serviços especializados para manter seu
+      instrumento sempre preparado para tocar.
+    </p>
+  </div>
+</section>
+
+<section id="servicos">
+
+  <div class="section-title">
+    <h2>Serviços</h2>
+    <p>Cuidados profissionais para o seu instrumento.</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="icon">🎻</div>
+      <h3>Regulagem</h3>
+      <p>Ajustes para melhorar conforto, resposta e tocabilidade.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🔧</div>
+      <h3>Manutenção</h3>
+      <p>Cuidados e reparos para manter seu instrumento em excelentes condições.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">✨</div>
+      <h3>Restauração</h3>
+      <p>Recuperação cuidadosa de instrumentos que precisam de atenção especial.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🎼</div>
+      <h3>Troca de Cordas</h3>
+      <p>Instalação e orientação na escolha das cordas.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">📐</div>
+      <h3>Ajuste de Cavalete</h3>
+      <p>Ajustes para proporcionar melhor funcionamento e resposta.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🔎</div>
+      <h3>Avaliação</h3>
+      <p>Avaliação do estado e das necessidades do instrumento.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="products" id="produtos">
+
+  <div class="section-title">
+    <h2>Produtos</h2>
+    <p>
+      Instrumentos e acessórios selecionados para músicos
+      que procuram qualidade.
+    </p>
+  </div>
+
+  <div class="cards">
+
+    <div class="product-card">
+      <div class="product-image">🎻</div>
+
+      <div class="product-info">
+        <h3>Violinos</h3>
+
+        <p>
+          Violinos selecionados para diferentes níveis de
+          experiência e necessidades musicais.
+        </p>
+
+        <a class="btn btn-orange"
+           href="https://wa.me/5518981170978?text=Olá!%20Tenho%20interesse%20em%20conhecer%20os%20violinos%20disponíveis."
+           target="_blank">
+           Consultar
+        </a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">🏹</div>
+
+      <div class="product-info">
+        <h3>Arcos para Violino</h3>
+
+        <p>
+          Arcos de <strong>alta qualidade</strong>, selecionados
+          para músicos que valorizam equilíbrio, precisão e
+          excelente resposta durante a execução.
+        </p>
+
+        <a class="btn btn-orange"
+           href="https://wa.me/5518981170978?text=Olá!%20Tenho%20interesse%20nos%20arcos%20para%20violino."
+           target="_blank">
+           Consultar
+        </a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">🎼</div>
+
+      <div class="product-info">
+        <h3>Acessórios</h3>
+
+        <p>
+          Acessórios e itens para complementar e cuidar
+          do seu instrumento.
+        </p>
+
+        <a class="btn btn-orange"
+           href="https://wa.me/5518981170978?text=Olá!%20Gostaria%20de%20conhecer%20os%20acessórios%20disponíveis."
+           target="_blank">
+           Consultar
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="highlight">
+
+    <h2>🎻 Arcos de Alta Qualidade</h2>
+
+    <p>
+      Escolha um arco que acompanhe o nível do seu instrumento.
+      Trabalhamos com opções selecionadas para músicos que
+      buscam qualidade, equilíbrio e precisão.
+    </p>
+
+    <br>
+
+    <a class="btn btn-beige"
+       href="https://wa.me/5518981170978?text=Olá!%20Quero%20saber%20mais%20sobre%20os%20arcos%20de%20alta%20qualidade."
+       target="_blank">
+       Quero conhecer os arcos
+    </a>
+
+  </div>
+
+</section>
+
+<section class="gallery">
+
+  <div class="section-title">
+    <h2>Galeria</h2>
+    <p>Um pouco do nosso trabalho.</p>
+  </div>
+
+  <div class="gallery-grid">
+
+    <div class="gallery-item">🎻</div>
+    <div class="gallery-item">🏹</div>
+    <div class="gallery-item">🔧</div>
+    <div class="gallery-item">🎼</div>
+
+  </div>
+
+  <p style="text-align:center;margin-top:25px;">
+    Em breve, fotos reais dos nossos instrumentos,
+    arcos e trabalhos realizados.
+  </p>
+
+</section>
+
+<section class="testimonials">
+
+  <div class="section-title">
+    <h2>O que nossos clientes dizem</h2>
+  </div>
+
+  <div class="cards">
+
+    <div class="testimonial">
+      <p>
+        “Excelente atendimento e muito cuidado com o instrumento.”
+      </p>
+      <strong>Cliente Luthearia</strong>
+    </div>
+
+    <div class="testimonial">
+      <p>
+        “O ajuste fez muita diferença na tocabilidade do meu violino.”
+      </p>
+      <strong>Cliente Luthearia</strong>
+    </div>
+
+    <div class="testimonial">
+      <p>
+        “Ótima qualidade nos instrumentos e acessórios.”
+      </p>
+      <strong>Cliente Luthearia</strong>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="contact" id="contato">
+
+  <div class="contact-box">
+
+    <div class="section-title">
+      <h2>Entre em contato</h2>
+
+      <p>
+        Quer conhecer nossos violinos, arcos ou serviços?
+        Fale conosco.
+      </p>
+    </div>
+
+    <a class="btn btn-orange"
+       href="https://wa.me/5518981170978?text=Olá!%20Vim%20pelo%20site%20da%20Luthearia."
+       target="_blank">
+       📱 WhatsApp
+    </a>
+
+    <div class="socials">
+
+      <a href="https://www.instagram.com/luthierdouglas?stkn=MW9idzF6cDkzbmRxag=="
+         target="_blank">
+         Instagram
+      </a>
+
+      <a href="https://www.tiktok.com/@luthierdouglasantiqueira?_r=1&_t=ZS-99jMCGaRMx6"
+         target="_blank">
+         TikTok
+      </a>
+
+      <a href="https://www.facebook.com/share/14o2E8Y92zf/?mibextid=wwXIfr"
+         target="_blank">
+         Facebook
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  <p>© 2026 Luthearia — Violinos, Arcos e Serviços de Luthier.</p>
+  <p>Qualidade, tradição e paixão pela música.</p>
+</footer>
+
+<a class="whatsapp-float"
+   href="https://wa.me/5518981170978?text=Olá!%20Vim%20pelo%20site%20da%20Luthearia."
+   target="_blank"
+   aria-label="Falar no WhatsApp">
+   ☎
+</a>
+
+</body>
+</html>
